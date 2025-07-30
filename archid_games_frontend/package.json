@@ -1,35 +1,17 @@
 {
-  "name": "react-kavia",
-  "version": "0.1.0",
+  "name": "archid-games-frontend-angularjs",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3",
-    "react-scripts": "^5.0.1"
-  },
+  "description": "Archid Games - AngularJS 1.x frontend",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "http-server ./src -c-1 -p 3000",
+    "build": "echo 'No build step required for AngularJS (vanilla JS/CSS/HTML)'"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "angular": "1.8.3",
+    "angular-route": "1.8.3"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "http-server": "^14.1.1"
   }
 }

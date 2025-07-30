@@ -1,0 +1,24 @@
+<div ng-if="vm.loading" class="card">Loading game...</div>
+<div ng-if="!vm.loading && !vm.game" class="card">Game not found.</div>
+<div ng-if="vm.game" class="card">
+  <div style="display:flex; flex-direction:row; gap:30px; align-items:flex-start; flex-wrap:wrap;">
+    <img ng-src="{{vm.game.cover_url || '/default_game.jpg'}}" alt="{{vm.game.title}}" style="height:160px; width:140px; object-fit:cover; border-radius:10px" />
+    <div>
+      <h2 style="color:#1e90ff">{{vm.game.title}}</h2>
+      <p style="color:#505161; font-size:1.07em">{{vm.game.description}}</p>
+      <div style="margin-top:14px;">
+        <b>Genre:</b> {{vm.game.genre}}
+        <span style="margin-left:30px;"><b>Release:</b> {{vm.game.release_date}}</span>
+      </div>
+    </div>
+  </div>
+  <hr style="margin:1.7em 0 1.1em 0; border:none; border-top:1.5px solid #e9ecef" />
+  <h3>Play and Submit Score</h3>
+  <form ng-submit="vm.handlePlay()" style="display:flex; gap:0.7em; align-items:center;">
+    <input type="number" step="1" min="0" max="999999" ng-model="vm.score" placeholder="Your score" required
+      style="padding:0.7em; border:1.2px solid #e9ecef; border-radius:7px; width:120px; font-size:1.1em" />
+    <button type="submit" class="btn-accent">Submit</button>
+    <span ng-if="vm.playResult.success" style="color:#4caf50; margin-left:6px;">{{vm.playResult.success}}</span>
+    <span ng-if="vm.playResult.error" style="color:#d32f2f; margin-left:6px;">{{vm.playResult.error}}</span>
+  </form>
+</div>
