@@ -1,0 +1,17 @@
+<div class="page-container">
+  <h1 class="card-title">Welcome to Archid Games 🎮</h1>
+  <div style="font-size: 1.17em; color:#414151; margin-bottom:2.5em;">
+    Browse and play the best indie games. Sign up to save scores and compete on the leaderboard!
+  </div>
+  <div ng-if="vm.loading">Loading games...</div>
+  <div ng-if="!vm.loading">
+    <div class="gallery">
+      <a ng-repeat="game in vm.games" class="gallery-card" ng-href="#!/games/{{game.id}}">
+        <img ng-src="{{game.cover_url || '/default_game.jpg'}}" alt="{{game.title}}" />
+        <div class="gallery-card-title">{{game.title}}</div>
+        <div class="gallery-card-desc">{{game.short_description || 'Fun game!'}}</div>
+      </a>
+      <div ng-if="!vm.games.length" style="padding:2em 0; color:#bdbdbd;">No games found.</div>
+    </div>
+  </div>
+</div>

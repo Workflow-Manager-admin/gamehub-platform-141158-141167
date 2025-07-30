@@ -1,0 +1,28 @@
+<div class="card">
+  <h2 style="color:#1e90ff; font-weight:700;">Leaderboard</h2>
+  <p style="color:#505161; font-size:1.09em;">See the highest scores across all games!</p>
+  <div ng-if="vm.loading">Loading leaderboard...</div>
+  <table ng-if="!vm.loading" style="width:100%; border-collapse:collapse; margin-top:1.5em;">
+    <thead>
+      <tr>
+        <th style="text-align:left;font-weight:700;padding:12px 6px;color:#1e90ff;">#</th>
+        <th style="text-align:left;font-weight:700;padding:12px 6px;color:#1e90ff;">Player</th>
+        <th style="text-align:left;font-weight:700;padding:12px 6px;color:#1e90ff;">Game</th>
+        <th style="text-align:left;font-weight:700;padding:12px 6px;color:#1e90ff;">Score</th>
+        <th style="text-align:left;font-weight:700;padding:12px 6px;color:#1e90ff;">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="entry in vm.leaders track by entry.id" style="border-bottom:1px solid #e9ecef;background:#fafcff">
+        <td style="text-align:left; padding:11px 6px;">{{$index+1}}</td>
+        <td style="text-align:left; padding:11px 6px;">{{entry.username}}</td>
+        <td style="text-align:left; padding:11px 6px;">{{entry.game_title}}</td>
+        <td style="text-align:left; padding:11px 6px; font-weight:600; color:#fbbf24">{{entry.score}}</td>
+        <td style="text-align:left; padding:11px 6px;">{{entry.date | date:'yyyy-MM-dd'}}</td>
+      </tr>
+      <tr ng-if="vm.leaders.length === 0">
+        <td colspan="5" style="padding:2em 0; text-align:center; color:#7b7b8f;">No high scores submitted yet.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

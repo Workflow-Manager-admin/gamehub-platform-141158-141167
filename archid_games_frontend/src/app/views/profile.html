@@ -1,0 +1,32 @@
+<div ng-if="vm.loading" class="card">Loading profile...</div>
+<div ng-if="!vm.loading" class="card">
+  <h2 style="color:#1e90ff;">Profile</h2>
+  <form ng-if="vm.edit" ng-submit="vm.handleSave()" class="form-card" style="margin-bottom:1.5em; display:flex; flex-direction:column; gap:1em;">
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="vm.form.name" required />
+    </div>
+    <div>
+      <label>Email:</label>
+      <input type="email" ng-model="vm.form.email" required />
+    </div>
+    <div>
+      <button class="btn-accent">Save</button>
+      <button type="button" ng-click="vm.cancel()" style="margin-left:1em; background:#e9ecef;">Cancel</button>
+    </div>
+  </form>
+  <div ng-if="!vm.edit" style="margin-bottom:1.5em;">
+    <div><b>Name:</b> {{vm.profile.name}}</div>
+    <div><b>Email:</b> {{vm.profile.email}}</div>
+    <button class="btn-accent" ng-click="vm.handleEdit()" style="background:#fbbf24; color:#23272f; margin-top:0.9em;">Edit Profile</button>
+  </div>
+  <div ng-if="vm.message" style="color:#409060; font-weight:600; margin-bottom:0.7em;">{{vm.message}}</div>
+  <hr style="margin:1em 0; border:none; border-top:1.3px solid #e9ecef;"/>
+  <h3>My Scores</h3>
+  <div ng-if="!vm.scores.length" style="color:#7b8797;">No scores yet.</div>
+  <ul>
+    <li ng-repeat="s in vm.scores">
+      <b>{{s.game_title}}</b>: <span style="color:#fbbf24;">{{s.score}}</span> pts ({{s.date | date:'yyyy-MM-dd'}})
+    </li>
+  </ul>
+</div>

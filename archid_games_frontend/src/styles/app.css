@@ -1,0 +1,172 @@
+/* Theme variables */
+:root {
+  --primary: #1e90ff;
+  --secondary: #23272f;
+  --accent: #fbbf24;
+  --bg-main: #fff;
+  --bg-alt: #f8f9fa;
+  --text-main: #23272f;
+  --text-light: #666a78;
+  --border: #e9ecef;
+}
+
+/* Reset & general */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Navbar */
+.navbar {
+  background: var(--bg-alt);
+  border-bottom: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  height: 58px;
+  padding: 0 2.5em;
+  justify-content: flex-start;
+  position: relative;
+  gap: 1.5em;
+}
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.7em;
+  margin-right: 16px;
+  text-decoration: none;
+  color: var(--primary);
+}
+.navbar a {
+  color: var(--text-main);
+  margin-left: 10px;
+  margin-right: 0;
+  font-weight: 500;
+  font-size: 1.08em;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.navbar a.active, .navbar a:focus, .navbar a:hover:not(.logo) {
+  color: var(--primary);
+}
+.navbar .nav-user {
+  color: #444;
+  margin-right: 6px;
+  font-size: 0.96em;
+}
+.navbar .nav-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.btn-accent {
+  background: var(--accent);
+  color: var(--secondary);
+  border: none;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-accent:hover {
+  background: #ffd65c;
+}
+main {
+  min-height: 85vh;
+}
+
+/* Container for main app pages */
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3.5em 1em;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5em;
+  margin-top: 2.8em;
+}
+.gallery-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 1.2em;
+  width: 230px;
+  min-height: 256px;
+  box-shadow: 0 4px 18px 0 rgba(30,144,255,0.04);
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: box-shadow 0.18s, transform 0.15s;
+}
+.gallery-card:hover {
+  box-shadow: 0 6px 24px 0 rgba(30,144,255,0.12);
+  transform: translateY(-3px) scale(1.03);
+}
+.gallery-card img {
+  height: 130px;
+  width: 100%;
+  object-fit: cover;
+  background: #eee;
+  margin-bottom: 9px;
+  border-radius: 1.2em 1.2em 0 0;
+}
+.gallery-card-title {
+  font-weight: bold;
+  font-size: 1.14em;
+  margin: 10px 0 0 0;
+}
+.gallery-card-desc {
+  color: #7b7e90;
+  font-size: 0.98em;
+  margin: 10px 16px 1em 16px;
+  flex: 1;
+}
+
+/* Form elements */
+form input, form button, form select {
+  font-size: 1.07em;
+  padding: 0.7em;
+  margin-bottom: 8px;
+}
+
+/* Page Card */
+.card, .form-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 18px 0 rgba(30,144,255,0.05);
+  margin: 2.5em auto;
+  padding: 2.4em 2em;
+  width: 100%;
+  max-width: 720px;
+}
+.card-title {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 2em;
+}
+@media (max-width: 760px) {
+  .navbar {
+    padding: 0 0.7em;
+    font-size: 0.98em;
+  }
+  .page-container, .card, .form-card {
+    padding: 1em 0.4em;
+    margin: 1.2em 0.2em 1.2em 0.2em;
+  }
+  .gallery-card {
+    width: 95vw;
+    min-width: unset;
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="archidGamesApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Archid Games Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/app.css">
+</head>
+<body ng-controller="AppController as app">
+  <nav class="navbar">
+    <a href="#/" class="logo"><span ng-style="{'color':'#1e90ff'}">Archid</span> Games</a>
+    <a href="#!/games" ng-class="{active: app.isActive('/games')}">Games</a>
+    <a href="#!/leaderboard" ng-class="{active: app.isActive('/leaderboard')}">Leaderboard</a>
+    <a ng-if="app.user" href="#!/profile" ng-class="{active: app.isActive('/profile')}">Profile</a>
+    <span class="nav-actions">
+      <span ng-if="!app.user">
+        <a href="#!/login" ng-class="{active: app.isActive('/login')}">Log In</a>
+        <a href="#!/signup" ng-class="{active: app.isActive('/signup')}">Sign Up</a>
+      </span>
+      <span ng-if="app.user">
+        <span class="nav-user">Hello, <b>{{app.user.name}}</b></span>
+        <button class="btn-accent" ng-click="app.logout()">Log Out</button>
+      </span>
+    </span>
+  </nav>
+  <main>
+    <div ng-view></div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.min.js"></script>
+  <script src="app/app.module.js"></script>
+  <script src="app/app.config.js"></script>
+  <script src="app/services/api.service.js"></script>
+  <script src="app/services/auth.service.js"></script>
+  <script src="app/controllers/app.controller.js"></script>
+  <script src="app/controllers/home.controller.js"></script>
+  <script src="app/controllers/game-details.controller.js"></script>
+  <script src="app/controllers/leaderboard.controller.js"></script>
+  <script src="app/controllers/profile.controller.js"></script>
+  <script src="app/controllers/login.controller.js"></script>
+  <script src="app/controllers/signup.controller.js"></script>
+</body>
+</html>

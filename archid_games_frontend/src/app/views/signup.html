@@ -1,0 +1,16 @@
+<div class="card" style="max-width:340px;">
+  <h2 style="color:#1e90ff; font-weight:700; text-align:center;">Sign Up</h2>
+  <form ng-submit="vm.handleSubmit()">
+    <div style="margin:1.2em 0;">
+      <input type="text" placeholder="Name" ng-model="vm.form.name" required style="width:100%;margin-bottom:12px;border:1.4px solid #e9ecef;border-radius:8px;" />
+      <input type="email" placeholder="Email" ng-model="vm.form.email" required style="width:100%;margin-bottom:12px;border:1.4px solid #e9ecef;border-radius:8px;" />
+      <input type="password" placeholder="Password" ng-model="vm.form.password" required minlength="6"
+        style="width:100%;border:1.4px solid #e9ecef;border-radius:8px;" />
+    </div>
+    <div ng-if="vm.error" style="color:#d32f2f; margin-bottom: 8px;">{{vm.error}}</div>
+    <button type="submit" class="btn-accent" style="width:100%;">{{vm.loading?"Signing up...":"Sign Up"}}</button>
+  </form>
+  <div style="margin-top:1em; font-size:1em; text-align:center">
+    Already have an account? <a href="#!/login" style="color:#1e90ff">Log In</a>
+  </div>
+</div>
