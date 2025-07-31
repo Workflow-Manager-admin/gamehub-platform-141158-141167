@@ -2,16 +2,32 @@
   "name": "archid-games-frontend-angularjs",
   "version": "1.0.0",
   "private": true,
-  "description": "Archid Games - AngularJS 1.x frontend",
+  "description": "Archid Games - React SPA frontend",
   "scripts": {
-    "start": "http-server ./src -c-1 -p 3000",
-    "build": "echo 'No build step required for AngularJS (vanilla JS/CSS/HTML)'"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "dependencies": {
-    "angular": "1.8.3",
-    "angular-route": "1.8.3"
+    "ajv": "^8.17.1",
+    "ajv-keywords": "^5.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.12.1"
   },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
